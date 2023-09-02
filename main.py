@@ -6,6 +6,7 @@ from spotipy.oauth2 import SpotifyOAuth
 SPOTIFY_CLIENT_ID = ""
 SPOTIFY_CLIENT_SECRET = ""
 REDIRECT_URI = "http://example.com"
+SPOTIFY_USER_NAME = "" #your spotify username
 
 # Create a Spotify API Client
 sp = spotipy.Spotify(
@@ -16,7 +17,7 @@ sp = spotipy.Spotify(
         scope="playlist-modify-private",
         show_dialog=True,
         cache_path="token.txt",
-        username="",  #your spotify username
+        username=SPOTIFY_USER_NAME, 
     )
 )
 
