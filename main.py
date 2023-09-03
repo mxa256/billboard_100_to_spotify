@@ -41,7 +41,7 @@ def checkdate(date):
 
 while breaker:
     user_date = input("Which era do you want to travel to? Type the date in this format YYYY-MM-DD: ")
-    breaker = checkdate(day_to_get)
+    breaker = checkdate(user_date)
 
 #Accessing billboard API
 response = requests.get(f"https://www.billboard.com/charts/hot-100/{user_date}/")
