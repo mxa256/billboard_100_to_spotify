@@ -26,8 +26,22 @@ sp = spotipy.Spotify(
 user = sp.current_user()
 user_id = user["id"]
 
-#Getting date input for Billboard top 100 songs
-user_date = input("Which year do you want to travel to? Type the date in this format YYYY-MM-DD: ")
+##Getting date input for Billboard top 100 songs and make sure our date input is good
+def checkdate(date):
+    try:
+        year = int(date[0:4])
+        month = int(date[5:7])
+        day = int(date[8:10])
+    except:
+        return True
+    if len(date)>10 or month <= 0 or month > 12 or day <= 0 or day > 31 or year < 1950 or year > 2022 or date[4] != "-" or date[7] != "-":
+        print("Invalid Input.\n")
+        return True
+    return False
+
+while breaker:
+    user_date = input("Which era do you want to travel to? Type the date in this format YYYY-MM-DD: ")
+    breaker = checkdate(day_to_get)
 
 #Accessing billboard API
 response = requests.get(f"https://www.billboard.com/charts/hot-100/{user_date}/")
